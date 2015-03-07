@@ -5,12 +5,6 @@ Created on Tue Feb 17 08:58:43 2015
 @author: maluko
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Feb 14 15:39:31 2015
-
-@author: maluko
-"""
 import requests
 import feedparser
 import re
@@ -33,7 +27,7 @@ class Reader(object):
         self.monthes = {"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "Jun": 5, \
             "Jul": 6, "Aug": 7, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12}
         self.url=url
-        
+        self.config = "./config.txt
     #@db_session
     def init_db(self):
          sql_debug(True)
@@ -100,7 +94,8 @@ class Reader(object):
                 print "====================="
                 print
     def read_config(self):
-        con=open("./rss-over9000.txt","r")
+# Store Rss Feeds in a txt-config-file, 1 link per line:
+        con=open(self.config,"r")
         for i in con:
             self.url.append(i)
     def keywords(self,text,target):
